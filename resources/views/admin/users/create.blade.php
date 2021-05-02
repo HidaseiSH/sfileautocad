@@ -16,7 +16,7 @@
                         <select name="role" id="role" class="cursor-pointer shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker">
                             <option value="">Escoga un Rol</option>
                             @foreach ($roles as $rl)
-                                <option @if (isset($user)) {{$user->hasRole($rl->name) ? 'selected' :''}}  @endif value="{{$rl->name}}">{{$rl->name}}</option>
+                                <option @if (isset($user)) {{$user->hasRole($rl->name) ? 'selected' :''}}  @endif value="{{$rl->id}}">{{$rl->name}}</option>
                             @endforeach
                             @php
                                 unset($rl);

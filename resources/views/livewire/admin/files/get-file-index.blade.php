@@ -52,7 +52,11 @@
                                                 {{$fl->email}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                {{$fl->my_description}}
+                                                @php
+                                                    $data = strpos($fl->description,'_');
+                                                    $desc = substr($fl->description, $data + 1);
+                                                @endphp
+                                                {{$desc}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <span class="cursor-pointer text-blue-500" wire:click="download({{$fl->id}},'{{$fl->url}}')">Descargar Archivo</span>

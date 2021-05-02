@@ -30,6 +30,10 @@ class RoleController extends Controller
         $request->validate([
             'name' => 'required',
             'permissions' => 'required',
+        ],
+        [
+            'name.required' => 'El campo Rol es obligatorio.',
+            'permissions.required' => 'Los permisos son obligatorios.',
         ]);
         $type = "info";
         $msg = "El Rol se registró con exito.";
@@ -45,7 +49,8 @@ class RoleController extends Controller
                 $role->permissions()->attach($request->permissions);
             }
         }else{
-            $role->permissions()->sync($request->permissions);
+            $role->syncPermissions($request->permissions);
+            //$role->permissions()->sync($request->permissions);
         }
         
         return redirect()->route('roles.index')->with($type,$msg);

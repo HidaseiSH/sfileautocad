@@ -40,7 +40,7 @@ class GetFileIndex extends Component
                         ->when($this->search, function($query, $data){
                             return $query->where('users.name','LIKE','%'.$data.'%');
                         })
-                        ->select('files.id','users.name','users.email','files.url','files.created_at')
+                        ->select('files.id','files.description','users.name','users.email','files.url','files.created_at')
                         ->latest('files.id')
                         ->paginate(10);
         return view('livewire.admin.files.get-file-index', compact('get_files'));

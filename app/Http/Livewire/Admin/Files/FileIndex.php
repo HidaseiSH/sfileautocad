@@ -36,15 +36,22 @@ class FileIndex extends Component
         Validator::make(
             ['description' => $this->description,
             'file' => $this->file],
-            ['description' => ['required','max:70',function($attribute, $value, $fail){
+            [
+                'description' => ['required','max:70',function($attribute, $value, $fail){
                 $id = Auth::user()->id;
                 $description = $this->get_descripction($value);
                 $files_validate = File::where('user_id',$id)->where('description', $description);
-                if ($files_validate->count()) {
-                    return $fail(__('Ingrese otra descripcion.'));
-                }
-            }],
-            'file' => ['required']],
+                    if ($files_validate->count()) {
+                        return $fail(__('Ingrese otra descripcion.'));
+                    }
+                }],
+                'file' => ['required']
+            ],
+            [
+                'description.required' => 'El campo Descripción es obligatorio.',
+                'description.max' => 'El campo Descripción debe tener un maximo de 70 caracteres.',
+                'file.required' => 'El campo Archivo es obligatorio.',
+            ]
             )
             ->validate();
         try {
