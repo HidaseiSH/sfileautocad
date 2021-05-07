@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuditsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -25,3 +26,7 @@ Route::delete('roles/{role}/destroy', [RoleController::class, 'destroy'])->name(
 
 Route::get('audits/files', [AuditsController::class, 'files'])->name('audits.files');
 Route::get('audits/users', [AuditsController::class, 'users'])->name('audits.users');
+
+
+Route::get('data', [DashboardController::class, 'data'])->name('data');
+Route::get('data/file_result', [DashboardController::class, 'file_result'])->name('data.file_result');
