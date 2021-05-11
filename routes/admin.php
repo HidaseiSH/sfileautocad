@@ -30,3 +30,4 @@ Route::get('audits/users', [AuditsController::class, 'users'])->name('audits.use
 
 Route::get('data', [DashboardController::class, 'data'])->name('data');
 Route::get('data/file_result', [DashboardController::class, 'file_result'])->name('data.file_result');
+Route::get('data/table', [DashboardController::class, 'table'])->name('data.table');

@@ -73,6 +73,9 @@
                                     <x-jet-dropdown-link href="{{route('data.file_result')}}">
                                         {{ __('Resultado de archivos') }}
                                     </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{route('data.table')}}">
+                                        {{ __('Resultado en tabla') }}
+                                    </x-jet-dropdown-link>
                                 </x-slot>
                             </x-jet-dropdown>
                         </div>
