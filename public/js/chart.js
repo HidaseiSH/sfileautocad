@@ -27,7 +27,7 @@ function show_bar(labels, error, success, description){
             label: "Exitoso",
             data: success,
             borderColor: 'rgb(119, 227, 13)',
-            backgroundColor: 'rgba(119, 227, 136, 0.3)',
+            backgroundColor: 'rgba(119, 227, 13, 0.3)',
         }]
     };
     

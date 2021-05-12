@@ -8,6 +8,8 @@
     <div class="container mt-8">
 
         @livewire('admin.data.table-index')
+        <br><br>
+        @livewire('admin.data.file-month-index')
  
     </div>
 </x-app-layout>
