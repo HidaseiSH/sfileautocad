@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class TableIndex extends Component
 {
-    public $year, $month;
+    public $year, $month, $type = 'download';
     public $data;
 
     public function mount(){
@@ -51,7 +51,7 @@ class TableIndex extends Component
             ->whereYear('created_at',$this->year)->groupBy('file_id')->pluck('file_id')->toArray();
             $data = DB::table('user_file_audits')
             ->select(DB::raw("file_id,DAY(created_at) as day,SUM(result ='error') count_error, SUM(result ='success') count_success"))
-            ->where('type','download')
+            ->where('type',$this->type)
             ->whereMonth('created_at',$this->month)
             ->whereYear('created_at',$this->year)
             ->groupBy('file_id','day')

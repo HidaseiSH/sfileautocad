@@ -1,5 +1,9 @@
 <div class="container">
     <div>
+        <select wire:model="type" class="border-gray-300 bg-white border rounded h-10 px-5 pr-16 text-sm focus:border-transparent">
+            <option value="download">Descarga de Archivo</option>
+            <option value="upload">Subida de Archivo</option>       
+        </select>
         <select wire:model="year" class="border-gray-300 bg-white border rounded h-10 px-5 pr-16 text-sm focus:border-transparent">
             <option value="">Seleccione un año</option>
             @foreach ($years as $y)
