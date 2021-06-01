@@ -60,8 +60,9 @@ class TableIndex extends Component
     
             foreach ($files as $value) {
                 $new = $this->get_Array($data, $value);
+                $sfile = File::find($value);
                 $data_file = [
-                    'name' => File::find($value)->description,
+                    'name' => ($sfile) ? $sfile->description : 'no existe',
                     'data' => array_values($new)
                 ];
                 array_push($arr_total, $data_file);

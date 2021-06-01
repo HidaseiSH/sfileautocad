@@ -1,17 +1,17 @@
-var months = ['En','Feb','Mzo','Abr','My','Jun','Jul','Ag','Sept','Oct','Nov','Dic'];
+
 var ctx = document.getElementById("myChart");
 myChart = new Chart(ctx,null );
 Livewire.on('get_data_file_two', (data) => {
+    let data_month_day = [];
     let data_set_upload = [];
     let data_set_download = [];
-    let data_month = [];
+    //console.log(data)
     data.map(function(num){
-        let month = months[num['month'] - 1];
-        data_month.push(month);
-        data_set_upload.push(num['upload']);
-        data_set_download.push(num['download']);
+      data_set_upload.push(num['upload']);
+      data_set_download.push(num['download']);
+      data_month_day.push(num['month_or_day']);
     });
-    show_bar_two(data_month, data_set_upload, data_set_download);
+    show_bar_two(data_month_day, data_set_upload, data_set_download);
 });
 
 function show_bar_two(labels, upload, download){
@@ -37,6 +37,18 @@ function show_bar_two(labels, upload, download){
         type: 'line',
         data: data,
         options: {
+            scales: {
+              y: {
+                ticks: {
+                    callback: function(val, index){
+                        if (Math.floor(val) === val) {
+                            return val;
+                        }
+                    }
+                },
+                beginAtZero: true
+            }
+            },
             responsive: true,
             plugins: {
               legend: {

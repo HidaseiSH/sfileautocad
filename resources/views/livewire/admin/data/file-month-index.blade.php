@@ -1,6 +1,6 @@
 <div class="container">
     <div>
-        <select wire:model="year" class="border-gray-300 bg-white border rounded h-10 px-5 pr-16 text-sm focus:border-transparent">
+        <select wire:change="send_data_file" wire:model="year" class="border-gray-300 bg-white border rounded h-10 px-5 pr-16 text-sm focus:border-transparent">
             <option value="">Seleccione un año</option>
             @foreach ($years as $y)
                 <option value="{{$y->year}}">{{$y->year}}</option>
@@ -10,7 +10,7 @@
             @endphp
         </select>
         @if ($year)
-            <select wire:model="month" class="border-gray-300 bg-white border rounded h-10 px-5 pr-16 text-sm focus:border-transparent">
+            <select wire:change="send_data_file" wire:model="month" class="border-gray-300 bg-white border rounded h-10 px-5 pr-16 text-sm focus:border-transparent">
                 <option value="">Seleccione un mes</option>
                 @foreach ($this->months as $m)
                     <option value="{{$m->month}}">{{$this->own_months($m->month)}}</option>
@@ -20,7 +20,7 @@
                 @endphp
             </select>                    
         @endif
-        <button wire:click="send_data_file" class="btn btn-primary">Mostrar</button>
+        {{-- <button wire:click="send_data_file" class="btn btn-primary">Mostrar</button> --}}
     </div>
 
     <div class="mt-6">

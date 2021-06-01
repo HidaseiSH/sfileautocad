@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AuditsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileController;
@@ -16,6 +17,9 @@ Route::post('users/change-password', [UserController::class, 'change_password'])
 
 Route::get('files', [FileController::class, 'index'])->name('files.index');
 Route::get('get-files', [FileController::class, 'get'])->name('files.get');
+
+Route::get('activities', [ActivityController::class, 'get'])->name('activities.get');
+Route::get('activities/{id}', [ActivityController::class, 'get_files'])->name('activities.get_files');
 
 
 Route::get('roles', [RoleController::class, 'index'])->name('roles.index');

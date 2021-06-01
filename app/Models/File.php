@@ -23,4 +23,10 @@ class File extends Model
     public function file_audits(){
         return $this->hasMany('App\Models\UserFileAudit');
     }
+
+    //ONE TO ONE
+    public function activity_file(){
+        return $this->hasMany('App\Models\ActivityFiles');
+    }
+
 }

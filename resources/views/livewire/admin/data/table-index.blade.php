@@ -24,7 +24,6 @@
                 @endphp
             </select>                    
         @endif
-        {{$this->days_month}}
     </div>
 
     <div class="card">
