@@ -168,7 +168,7 @@
                                 <div class="container">
                                     <div class="text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
                                         <strong class="mr-1">Error! La contraseña es incorrecta</strong> .
-                                        <button wire:click="close_alert" type="button" data-dismiss="alert" aria-label="Close">
+                                        <button wire:click="$set('alert_password',false)" type="button" data-dismiss="alert" aria-label="Close">
                                             <span class="absolute top-0 bottom-0 right-0 text-2xl px-3 py-1 hover:text-red-900" aria-hidden="true" >×</span>
                                         </button>
                                     </div>
